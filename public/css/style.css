@@ -1,9 +1,32 @@
 body {
     background-color: #0B132B;
     color: #6FFFE9;
+    font-size: 3rem;
 }
+
 h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#nav-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.list-item {
+    color: #6FFFE9;
+    text-decoration: none;
+}
+
+footer {
+    font-size: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
