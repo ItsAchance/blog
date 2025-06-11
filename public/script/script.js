@@ -11,12 +11,14 @@ const newPostBtn = () => {
 
     document.querySelector('.btn-container').after(divElement);
     document.querySelector('.entry-container').appendChild(textArea);
+    document.querySelector('#new-post-btn').classList.toggle('hidden');
     });
 }
 
 const submitBtn = () => {
     document.querySelector('#submit-btn').addEventListener('click', function () {
-    alert('Post submited');
+    document.querySelector('#new-post-btn').classList.toggle('hidden');
+    document.querySelector('.textbox').classList.toggle('hidden');
     });
 }
 
