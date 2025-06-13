@@ -1,6 +1,3 @@
-//const divElement = document.createElement('div');
-//const formElement = document.createElement('form');
-
 const newPostBtn = () => {
     document.querySelector('#new-post-btn').addEventListener('click', function() {
 
@@ -13,6 +10,8 @@ const newPostBtn = () => {
         // This is the form tag
         const formElement = document.createElement('form');
         formElement.className = 'form-container'
+        formElement.method = 'POST';
+        formElement.action = '/submit';
         document.querySelector('#form-div').appendChild(formElement);
 
         // Textarea is the textarea element
@@ -33,21 +32,20 @@ const newPostBtn = () => {
         const submitBtn = document.createElement('input');
         submitBtn.className = 'btn';
         submitBtn.type = 'button';
-        submitBtn.name = 'Submit';
+        submitBtn.name = 'submit';
         submitBtn.value = 'Submit';
         submitBtn.id = 'submit-btn';
         document.querySelector('#submit-btn-div').appendChild(submitBtn);
 
+        // Attaches an eventListener to the button so it can toggle the New post button
+        document.querySelector('#submit-btn').addEventListener('click', function() {
+            document.querySelector('#new-post-btn').classList.toggle('hidden');
+            document.querySelector('.textbox').classList.toggle('hidden');
+            document.querySelector('#submit-btn').classList.toggle('hidden');
+        });
         document.querySelector('#new-post-btn').classList.toggle('hidden');
     });
 }
 
-const submitBtn = () => {
-    document.querySelector('#submit-btn').addEventListener('click', function() {
-        document.querySelector('#new-post-btn').classList.toggle('hidden');
-        document.querySelector('.textbox').classList.toggle('hidden');
-    });
-}
 
 newPostBtn();
-submitBtn();
