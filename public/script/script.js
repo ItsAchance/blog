@@ -37,8 +37,17 @@ const newPostBtn = () => {
         submitBtn.id = 'submit-btn';
         document.querySelector('#submit-btn-div').appendChild(submitBtn);
 
-        // Attaches an eventListener to the button so it can toggle the New post button
+        // Attaches an eventListener to the submit button so it can toggle the New post button
+        // and send the content to the backend
         document.querySelector('#submit-btn').addEventListener('click', function() {
+            const textContent = document.querySelector('.textbox').value;
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ textContent })
+            });
+
             document.querySelector('#new-post-btn').classList.toggle('hidden');
             document.querySelector('.textbox').classList.toggle('hidden');
             document.querySelector('#submit-btn').classList.toggle('hidden');
